@@ -16,15 +16,35 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <style>
+        h1{
+                background-color:teal;
+                color: brown;
+                font-family: sans-serif;
+                text-align: center;
+            }
         table {
             width: 250px;
-            margin: 0 auto;
             text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 520px;
+        }
+        button{
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 820px;
         }
     </style>
 </head>
 
 <body>
+    <h1>Weather Tracking Application</h1>
+    {{if not .Valid}}
+    <h3 class="text-center" style="color:red;">Please Enter Correct City/Country Name! </h3>  <br>
+    {{end}}
+    <br><br>
+    {{if .Valid}}
     <table border="1px">
         <thead class="table-dark">
             <tr class="table">
@@ -52,10 +72,9 @@
             <td>{{.Current.WindKph}}</td>
             <td><img src="{{.Current.Condition.Icon}}"></td>
         </tr>
-        <tr>
-            <td colspan="10"><button><a href="input.html">Back</a></button></td>
-        </tr>
     </table>
+    {{end}}
+    <button><a href="input.html">BACK</button>
 </body>
 
 </html>
